@@ -30,7 +30,7 @@ function calculateScore(numbers) {
 			// Check for the amount of occurences
 			for (k = 0; k < thisNumber.length; k++) {
 				if (k != j && thisChar === thisNumber.charAt(k)) {
-					array[i].score += 1;
+					array[i].score += 0.5;
 				}
 			}
 
