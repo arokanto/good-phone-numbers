@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+	<head>
+
+	</head>
+
+	<body>
+
+		<div id="numbers"></div>
+
+
+		<script src="good-phone-numbers.js"></script>
+
+		<script>
+
+			document.getElementById('numbers').innerHTML = 'Calculating...';
+
+			setTimeout(function(){
+				var numbers = generatePhoneNumbers(1000, 3000000, 9000000);
+				var sortedNumbers = calculateScore(numbers);
+
+				document.getElementById('numbers').innerHTML = '';
+
+				var l = sortedNumbers.length;
+				for (var i = 0; i < l; i++) {
+					document.getElementById('numbers').innerHTML += sortedNumbers[i].score + ' - ' + sortedNumbers[i].num + '<br>';
+				}
+			}, 50);
+
+		</script>
+
+	</body>
+
+</html>
