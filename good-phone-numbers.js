@@ -32,7 +32,7 @@ function calculateScore(numbers) {
 			if (tempAr.indexOf(thisChar) === -1) {
 			
 				// Check for the amount of occurences
-				for (k = (j + 1); k < thisNumber.length; k++) {
+				for (k = (j + 1); k < len; k++) {
 					if (thisChar === thisNumber.charAt(k)) {
 						array[i].score += 1;
 					}
