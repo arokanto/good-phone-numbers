@@ -7,6 +7,7 @@
 
 	<body>
 
+		<div id="debug"></div>
 		<div id="numbers"></div>
 
 
@@ -14,9 +15,10 @@
 
 		<script>
 
-			document.getElementById('numbers').innerHTML = 'Calculating...';
+			document.getElementById('debug').innerHTML = 'Calculating...';
 
 			setTimeout(function(){
+				var timestamp = new Date().getTime();
 				var numbers = generatePhoneNumbers(1000, 3000000, 9000000);
 				var sortedNumbers = calculateScore(numbers);
 
@@ -26,6 +28,7 @@
 				for (var i = 0; i < l; i++) {
 					document.getElementById('numbers').innerHTML += sortedNumbers[i].score + ' - ' + sortedNumbers[i].num + '<br>';
 				}
+				document.getElementById('debug').innerHTML = 'Done in ' + (new Date().getTime() - timestamp) + ' ms.';
 			}, 50);
 
 		</script>
