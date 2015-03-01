@@ -10,7 +10,7 @@ function calculateScore(numbers) {
 
 	var l = numbers.length;
 	var array = [];
-	var i, j, k, thisNumber, len;
+	var i, j, k, thisNumber, len, tempAr;
 	var sortedNumbers;
 
 	// Store the numbers to an array of objects
@@ -24,20 +24,28 @@ function calculateScore(numbers) {
 	for (i = 0; i < l; i++) {
 		thisNumber = array[i].num;
 		len = thisNumber.length;
+		tempAr = [];
 		for (j = 0; j < len; j++) {
 			thisChar = thisNumber.charAt(j);
 
-			// Check for the amount of occurences
-			for (k = 0; k < thisNumber.length; k++) {
-				if (k != j && thisChar === thisNumber.charAt(k)) {
-					array[i].score += 0.5;
+			// Only calculate each number once
+			if (tempAr.indexOf(thisChar) === -1) {
+			
+				// Check for the amount of occurences
+				for (k = (j + 1); k < thisNumber.length; k++) {
+					if (thisChar === thisNumber.charAt(k)) {
+						array[i].score += 1;
+					}
 				}
 			}
-
+			
 			// Check for adjacency
-			if (thisChar === thisNumber.charAt(j - 1) || thisChar === thisNumber.charAt(j + 1)) {
+			if (thisChar === thisNumber.charAt(j + 1)) {
 				array[i].score += 2;
 			}
+
+			tempAr.push(thisChar);
+			
 		}
 	}
 
