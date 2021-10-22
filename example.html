@@ -1,39 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head> </head>
 
-	<head>
+  <body>
+    <div id="debug"></div>
+    <div id="numbers"></div>
 
-	</head>
+    <script src="good-phone-numbers.js"></script>
 
-	<body>
+    <script>
+      const debugField = document.getElementById("debug");
+      const numbersField = document.getElementById("numbers");
+      debugField.innerHTML = "Calculating...";
 
-		<div id="debug"></div>
-		<div id="numbers"></div>
+      setTimeout(() => {
+        const timestamp = new Date().getTime();
+        const numbers = generatePhoneNumbers(1000, 3000000, 9000000);
+        const sortedNumbers = calculateScores(numbers);
 
+        const output = sortedNumbers.map((number) => {
+          return number.score + " - " + number.num + "<br>";
+        });
+        numbersField.innerHTML = output.join("");
 
-		<script src="good-phone-numbers.js"></script>
-
-		<script>
-
-			const debugField = document.getElementById('debug')
-			const numbersField = document.getElementById('numbers')
-			debugField.innerHTML = 'Calculating...';
-
-			setTimeout(function(){
-				const timestamp = new Date().getTime();
-				const numbers = generatePhoneNumbers(1000, 3000000, 9000000);
-				const sortedNumbers = calculateScores(numbers);
-
-				const output = sortedNumbers.map(number => {
-					return number.score + ' - ' + number.num + '<br>';
-				})
-				numbersField.innerHTML = output.join('');
-
-				debugField.innerHTML = 'Done in ' + (new Date().getTime() - timestamp) + ' ms.';
-			}, 50);
-
-		</script>
-
-	</body>
-
+        debugField.innerHTML =
+          "Done in " + (new Date().getTime() - timestamp) + " ms.";
+      }, 50);
+    </script>
+  </body>
 </html>
