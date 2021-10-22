@@ -15,20 +15,21 @@
 
 		<script>
 
-			document.getElementById('debug').innerHTML = 'Calculating...';
+			const debugField = document.getElementById('debug')
+			const numbersField = document.getElementById('numbers')
+			debugField.innerHTML = 'Calculating...';
 
 			setTimeout(function(){
-				var timestamp = new Date().getTime();
-				var numbers = generatePhoneNumbers(1000, 3000000, 9000000);
-				var sortedNumbers = calculateScore(numbers);
+				const timestamp = new Date().getTime();
+				const numbers = generatePhoneNumbers(1000, 3000000, 9000000);
+				const sortedNumbers = calculateScores(numbers);
 
-				document.getElementById('numbers').innerHTML = '';
+				const output = sortedNumbers.map(number => {
+					return number.score + ' - ' + number.num + '<br>';
+				})
+				numbersField.innerHTML = output.join('');
 
-				var l = sortedNumbers.length;
-				for (var i = 0; i < l; i++) {
-					document.getElementById('numbers').innerHTML += sortedNumbers[i].score + ' - ' + sortedNumbers[i].num + '<br>';
-				}
-				document.getElementById('debug').innerHTML = 'Done in ' + (new Date().getTime() - timestamp) + ' ms.';
+				debugField.innerHTML = 'Done in ' + (new Date().getTime() - timestamp) + ' ms.';
 			}, 50);
 
 		</script>
