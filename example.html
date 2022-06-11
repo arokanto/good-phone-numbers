@@ -6,7 +6,7 @@
     <div id="debug"></div>
     <div id="numbers"></div>
 
-    <script src="good-phone-numbers.js"></script>
+    <script src="./good-phone-numbers.js"></script>
 
     <script>
       const debugField = document.getElementById("debug");
@@ -23,8 +23,7 @@
         });
         numbersField.innerHTML = output.join("");
 
-        debugField.innerHTML =
-          "Done in " + (new Date().getTime() - timestamp) + " ms.";
+        debugField.innerHTML = "Done in " + (new Date().getTime() - timestamp) + " ms.";
       }, 50);
     </script>
   </body>

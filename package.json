@@ -1,0 +1,27 @@
+{
+  "name": "good-phone-numbers",
+  "version": "1.1.0",
+  "description": "Good Phone Numbers",
+  "main": "good-phone-numbers.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arokanto/good-phone-numbers.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arokanto/good-phone-numbers/issues"
+  },
+  "homepage": "https://github.com/arokanto/good-phone-numbers#readme",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  },
+  "type": "module",
+  "jest": {
+    "verbose": true,
+    "transform": {}
+  }
+}
